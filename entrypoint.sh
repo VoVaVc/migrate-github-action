@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -eu
-
 sh -c "
     echo Envs are:
     verbose=''
