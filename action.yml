@@ -20,6 +20,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'migrate/migrate'
+  entrypoint: ${{ inputs.command }}
   args:
     - -path 
     - ${{ inputs.migrations-folder }}
@@ -27,7 +28,6 @@ runs:
     - ${{ inputs.database }}
     - -verbose
     - ${{ inputs.verbose }}
-    - " ${{ inputs.command }} 2"
 
 branding:
   icon: 'database'
