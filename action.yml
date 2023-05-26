@@ -21,12 +21,12 @@ runs:
   using: 'docker'
   image: 'migrate/migrate'
   args:
-    - -path 
-    - "${{ inputs.migrations-folder }}"
-    - -verbose 
-    - "${{ inputs.verbose }}" 
-    - -database 
-    - "${{ inputs.database }}"
+    # - -path 
+    # - "${{ inputs.migrations-folder }}"
+    # - -verbose 
+    # - "${{ inputs.verbose }}" 
+    # - -database 
+    # - "${{ inputs.database }}"
     - version
 
 branding:
