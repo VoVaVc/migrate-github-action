@@ -6,8 +6,8 @@ jobs:
     name: A job to say hello
     steps:  
       - name: Checkout
-        uses: actions/checkout@v2
-      - uses: ./action.yml
+        uses: actions/checkout@v3
+      - uses: ./
         with:
           migrations-folder: ./migrations
           database: postgres://localhost:5432/database up 2
