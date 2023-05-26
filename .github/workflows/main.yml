@@ -13,18 +13,10 @@ jobs:
           POSTGRES_DB: database
         ports:
           - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:  
       - name: Checkout
         uses: actions/checkout@v3
-      # - uses: harmon758/postgresql-action@v1
-      #   with:
-      #     postgresql version: '15'
-      #     postgresql db: 'database'
-      #     postgresql user: 'postgres'
-      #     postgresql password: 'postgres'
       - uses: ./
         with:
-          migrations-folder: ./migrations
-          database: postgres://postgres:postgres@postgres:5432/database?sslmode=disable up 2
+          database: postgres://postgres:postgres@postgres:5432/database?sslmode=disable
