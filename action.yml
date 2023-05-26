@@ -22,7 +22,7 @@ runs:
   image: 'migrate/migrate'
   args:
     - --path 
-    - "{{ inputs.migrations-folder }}
+    - ${{ inputs.migrations-folder }}
     # - -verbose 
     # - "${{ inputs.verbose }}" 
     - --database 
