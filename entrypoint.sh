@@ -2,7 +2,7 @@
 
 sh -c "
     echo Envs are:
-    VERBOSE=$([! -z $INPUT_VERBOSE -a $INPUT_VERBOSE != '' ] && '-verbose' || '')
+    VERBOSE=$([ -z $INPUT_VERBOSE ] && echo "" || echo "-verbose");
     echo $INPUT_PATH
     echo $INPUT_DATABASE
     echo $INPUT_VERBOSE
