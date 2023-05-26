@@ -9,5 +9,6 @@ sh -c "
     echo $INPUT_VERBOSE
     echo $INPUT_COMMAND
     echo Envs end;
-    migrate -path $INPUT_PATH -database $INPUT_DATABASE -verbose $INPUT_VERBOSE $INPUT_COMMAND
+    echo command is: migrate -path $INPUT_PATH -database $INPUT_DATABASE -verbose $INPUT_VERBOSE $INPUT_COMMAND
+    migrate -path $INPUT_PATH -database $INPUT_DATABASE -verbose $INPUT_VERBOSE $INPUT_COMMAND 2
 "
