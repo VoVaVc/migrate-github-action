@@ -14,10 +14,8 @@ runs:
   using: 'docker'
   image: 'migrate/migrate'
   args:
-    - -source 
-    - ${{ inputs.migrations-folder }}
-    - -database 
-    - ${{ inputs.database }}
+    - -source ${{ inputs.migrations-folder }}
+    - -database ${{ inputs.database }}
     - up
 
 branding:
