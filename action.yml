@@ -3,7 +3,7 @@ name: 'Migrate'
 author: 'Vladimir Pavlov'
 description: 'Greet someone and record the time'
 inputs:
-  migrations-folder:
+  path:
     description: 'Migrations folder'
     required: true
     default: './migrations'
