@@ -19,6 +19,11 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args: 
+    - ${{ inputs.path }}
+    - ${{ inputs.database }}
+    - ${{ inputs.verbose }}
+    - ${{ inputs.command }}
 
 branding:
   icon: 'database'

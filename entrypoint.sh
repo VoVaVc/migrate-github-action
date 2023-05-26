@@ -2,9 +2,12 @@
 
 set -eu
 
-export GITHUB="true"
-
 sh -c "
-    echo $*
-    migrate -path $1 -database $2 -verbose $3 $4
+    echo Envs are:
+    echo $INPUT_PATH
+    echo $INPUT_DATABASE
+    echo $INPUT_VERBOSE
+    echo $INPUT_COMMAND
+    echo Envs end;
+    migrate -path $INPUT_PATH -database $INPUT_DATABASE -verbose $INPUT_VERBOSE $INPUT_COMMAND
 "
