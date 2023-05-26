@@ -1,0 +1,19 @@
+# action.yml
+name: 'Migrate'
+author: 'Vladimir Pavlov'
+description: 'Greet someone and record the time'
+inputs:
+  migrations-folder:
+    description: 'Migrations folder'
+    required: true
+    default: './migrations'
+  database:
+    description: 'Connect to database string'
+    required: true
+runs:
+  using: 'docker'
+  image: 'migrate/migrate'
+  args:
+    -v ${{ inputs.migrations-folder }}/migrations
+    -path /migrations/
+    -database ${{ inputs.database }}
