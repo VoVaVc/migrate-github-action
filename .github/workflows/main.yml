@@ -18,12 +18,12 @@ jobs:
     steps:  
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: harmon758/postgresql-action@v1
-        with:
-          postgresql version: '15'
-          postgresql db: 'database'
-          postgresql user: 'postgres'
-          postgresql password: 'postgres'
+      # - uses: harmon758/postgresql-action@v1
+      #   with:
+      #     postgresql version: '15'
+      #     postgresql db: 'database'
+      #     postgresql user: 'postgres'
+      #     postgresql password: 'postgres'
       - uses: ./
         with:
           migrations-folder: ./migrations
