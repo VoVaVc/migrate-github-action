@@ -27,4 +27,4 @@ jobs:
       - uses: ./
         with:
           migrations-folder: ./migrations
-          database: postgres://localhost:5432/database up 2
+          database: postgres://postgres:postgres@127.0.0.1:5432/database up 2
