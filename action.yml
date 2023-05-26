@@ -4,26 +4,38 @@ author: 'Vladimir Pavlov'
 description: 'Greet someone and record the time'
 inputs:
   path:
-    description: 'Migrations folder'
+    description: 'Location of the migration files'
     required: true
     default: './migrations'
   database:
-    description: 'Connect to database string'
+    description: 'Run migrations against this database (ex: postgres://postgres:postgres@postgres:5432/database?sslmode=disable)'
     required: true
-  verbose:
-    description: 'Show verbose logs'
-    default: ''
   command:
     description: 'Command to run'
     default: 'up'
+  prefetch:
+    description: 'Number of migrations to load in advance before executing (default 10)'
+    default: '10'
+  lock-timeout:
+    description: 'Allow N seconds to acquire database lock (default 15)'
+    default: '15'
+  verbose:
+    description: 'Print verbose logging'
+    default: ''
+  version: 
+    description: 'Print version'
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args: 
     - ${{ inputs.path }}
     - ${{ inputs.database }}
-    - ${{ inputs.verbose }}
     - ${{ inputs.command }}
+    - ${{ inputs.prefetch }}
+    - ${{ inputs.lock-timeout }}
+    - ${{ inputs.verbose }}
+    - ${{ inputs.version }}
 
 branding:
   icon: 'database'

@@ -21,3 +21,4 @@ jobs:
         with:
           database: postgres://postgres:postgres@postgres:5432/database?sslmode=disable
           verbose: true
+          version: true
