@@ -12,13 +12,7 @@ inputs:
     required: true
 runs:
   using: 'docker'
-  image: 'migrate/migrate'
-  entrypoint: 'up 2'
-  args:
-    - -path 
-    - ${{ inputs.migrations-folder }}
-    - -database 
-    - ${{ inputs.database }}
+  image: 'Dockerfile'
 
 branding:
   icon: 'database'
