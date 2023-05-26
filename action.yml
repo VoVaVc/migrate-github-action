@@ -18,7 +18,7 @@ runs:
     - ${{ inputs.migrations-folder }}
     - -database 
     - ${{ inputs.database }}
-    - "up 2"
+    - 'up 2'
 
 branding:
   icon: 'database'
