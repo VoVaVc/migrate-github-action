@@ -14,6 +14,6 @@ sh -c '
     else
         VERSION="-verbose"
     fi
-    echo command is: migrate -path $INPUT_PATH -database $INPUT_DATABASE -prefetch $INPUT_PREFETCH -lock-timeout $INPUT_LOCK_TIMEOUT $VERBOSE $VERSION $INPUT_COMMAND
-    migrate -path $INPUT_PATH -database $INPUT_DATABASE -prefetch $INPUT_PREFETCH -lock-timeout $INPUT_LOCK_TIMEOUT $VERBOSE $VERSION $INPUT_COMMAND
+    echo command is: migrate -path $INPUT_PATH -database $INPUT_DATABASE -prefetch $INPUT_PREFETCH -lock-timeout $INPUT_LOCK-TIMEOUT $VERBOSE $VERSION $INPUT_COMMAND
+    migrate -path $INPUT_PATH -database $INPUT_DATABASE -prefetch $INPUT_PREFETCH -lock-timeout $INPUT_LOCK-TIMEOUT $VERBOSE $VERSION $INPUT_COMMAND
 '
