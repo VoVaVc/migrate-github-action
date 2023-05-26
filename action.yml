@@ -14,6 +14,6 @@ runs:
   using: 'docker'
   image: 'migrate/migrate'
   args:
-    -v ${{ inputs.migrations-folder }}/migrations
-    -path /migrations/
-    -database ${{ inputs.database }}
+    - v ${{ inputs.migrations-folder }}/migrations
+    - path /migrations/
+    - database ${{ inputs.database }}
