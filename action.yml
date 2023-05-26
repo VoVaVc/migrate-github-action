@@ -27,7 +27,7 @@ runs:
     - ${{ inputs.database }}
     - -verbose
     - ${{ inputs.verbose }}
-    - ${{ inputs.command }}
+    -  ${{ inputs.command }}
 
 branding:
   icon: 'database'
