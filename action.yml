@@ -23,11 +23,10 @@ runs:
   args:
     - -path 
     - "${{ inputs.migrations-folder }}"
-    - -database 
-    - "${{ inputs.database }}" 
     - -verbose 
     - "${{ inputs.verbose }}" 
-    - add up some more strings
+    - -database 
+    - "${{ inputs.database }} up" 
 
 branding:
   icon: 'database'
