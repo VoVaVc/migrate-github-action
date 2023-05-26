@@ -5,29 +5,20 @@ description: 'Greet someone and record the time'
 inputs:
   migrations-folder:
     description: 'Migrations folder'
-    required: false
-    default: './migrations'
-  command:
-    description: 'Command'
-    required: false
-    default: 'up'
-  database:
-    description: 'Database connection string'
     required: true
-  verbose:
-    description: 'Enable verbose logging'
-    default: 'false'
+    default: './migrations'
+  database:
+    description: 'Connect to database string'
+    required: true
 runs:
   using: 'docker'
   image: 'migrate/migrate'
   args:
-    - -source 
+    - -path 
     - ${{ inputs.migrations-folder }}
-    # - -verbose 
-    # - "${{ inputs.verbose }}" 
     - -database 
     - ${{ inputs.database }}
-    - version
+    - up 2
 
 branding:
   icon: 'database'
