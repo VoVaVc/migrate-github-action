@@ -26,8 +26,8 @@ runs:
     - -verbose 
     - "${{ inputs.verbose }}" 
     - -database 
-    - "${{ inputs.database }} up 2"
-    - up 2
+    - "${{ inputs.database }}"
+    - version
 
 branding:
   icon: 'database'
