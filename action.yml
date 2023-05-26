@@ -12,7 +12,7 @@ inputs:
     required: true
   verbose:
     description: 'Show verbose logs'
-    default: 'false'
+    default: ''
   command:
     description: 'Command to run'
     default: 'up'
