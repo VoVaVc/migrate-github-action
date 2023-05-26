@@ -14,11 +14,11 @@ runs:
   using: 'docker'
   image: 'migrate/migrate'
   args:
-    - -path 
-    - ${{ inputs.migrations-folder }}
-    - -database 
-    - ${{ inputs.database }}
-    - 'up 2'
+    - "-path"
+    - '${{ inputs.migrations-folder }}'
+    - "-database" 
+    - '${{ inputs.database }}'
+    - "up 2" 
 
 branding:
   icon: 'database'
