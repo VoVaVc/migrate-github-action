@@ -17,8 +17,13 @@ jobs:
     steps:  
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: ./
+      - name: Check with version flag
+        uses: ./
+        with:
+          database: postgres://postgres:postgres@postgres:5432/database?sslmode=disable
+          version: true
+      - name: Check basic execution with defaults
+        uses: ./
         with:
           database: postgres://postgres:postgres@postgres:5432/database?sslmode=disable
           verbose: true
-          version: true
