@@ -10,6 +10,9 @@ inputs:
   database:
     description: 'Connect to database string'
     required: true
+  verbose:
+    description: 'Show verbose logs'
+    default: 'false'
   command:
     description: 'Command to run'
     default: 'up'
