@@ -16,7 +16,7 @@ inputs:
   prefetch:
     description: 'Number of migrations to load in advance before executing (default 10)'
     default: '10'
-  lock-timeout:
+  lockTimeout:
     description: 'Allow N seconds to acquire database lock (default 15)'
     default: '15'
   verbose:
@@ -33,7 +33,7 @@ runs:
     - ${{ inputs.database }}
     - ${{ inputs.command }}
     - ${{ inputs.prefetch }}
-    - ${{ inputs.lock-timeout }}
+    - ${{ inputs.lockTimeout }}
     - ${{ inputs.verbose }}
     - ${{ inputs.version }}
 
