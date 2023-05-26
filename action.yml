@@ -10,6 +10,9 @@ inputs:
   database:
     description: 'Connect to database string'
     required: true
+  command:
+    description: 'Command to run'
+    default: 'up'
 runs:
   using: 'docker'
   image: 'Dockerfile'
