@@ -33,7 +33,7 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       - name: Check with version flag
-        uses: VoVaVc/migrate-github-action 
+        uses: vovavc/migrate-github-action@v0.1.1
         with:
             path: ./backend/migrate
             database: postgres://username:password@localhost:5432/database_name?sslmode=disable
