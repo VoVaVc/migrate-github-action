@@ -19,8 +19,6 @@ See [action.yml](./action.yml) for more detailed information.
 
 ## Usage
 
-Executing remote ssh commands.
-
 ```yaml
 name: run migration
 on: [push]
@@ -32,7 +30,7 @@ jobs:
     steps:
         name: Checkout
         uses: actions/checkout@v3
-      - name: Check with version flag
+      - name: Migrate
         uses: vovavc/migrate-github-action@v0.1.1
         with:
             path: ./backend/migrate
