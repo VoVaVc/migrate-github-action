@@ -22,7 +22,7 @@ See [action.yml](./action.yml) for more detailed information.
 Executing remote ssh commands.
 
 ```yaml
-name: remote ssh command
+name: run migration
 on: [push]
 jobs:
 
