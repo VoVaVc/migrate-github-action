@@ -1,7 +1,6 @@
 #!/bin/sh
 
 sh -c '
-    echo Envs are:
     if [ -z $INPUT_VERBOSE ] 
     then
         VERBOSE=""
@@ -14,6 +13,5 @@ sh -c '
     else
         VERSION="-version"
     fi
-    echo command is: migrate -path $INPUT_PATH -database $INPUT_DATABASE -prefetch $INPUT_PREFETCH -lock-timeout $INPUT_LOCKTIMEOUT $VERBOSE $VERSION $INPUT_COMMAND
     migrate -path $INPUT_PATH -database $INPUT_DATABASE -prefetch $INPUT_PREFETCH -lock-timeout $INPUT_LOCKTIMEOUT $VERBOSE $VERSION $INPUT_COMMAND
 '
