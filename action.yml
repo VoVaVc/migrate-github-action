@@ -1,7 +1,7 @@
 # action.yml
-name: 'Migrate'
+name: 'Migrate database'
 author: 'Vladimir Pavlov'
-description: 'Greet someone and record the time'
+description: 'Database seed tool built with golang-migrate'
 inputs:
   path:
     description: 'Location of the migration files'
