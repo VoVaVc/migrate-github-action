@@ -12,12 +12,7 @@ func main() {
 	fmt.Println(len(os.Args), os.Args)
 	args := os.Args
 
-	parsedDatabase, parseErr := url.Parse(args[2])
-	if parseErr != nil {
-		fmt.Println(parseErr)
-	}
-
-	arguments := []string{args[1], parsedDatabase.RequestURI(), args[3], args[4]}
+	arguments := []string{args[1], url.QueryEscape(args[2]), args[3], args[4]}
 	fmt.Printf("%v", arguments)
 
 	if len(args[5]) > 0 {
