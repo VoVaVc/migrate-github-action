@@ -27,7 +27,7 @@ func main() {
 		arguments = append(arguments, "-version")
 	}
 
-	arguments = append(arguments, args[4])
+	arguments = append(arguments, args[7])
 
 	fmt.Printf("%v", arguments)
 	cmd := exec.Command("migrate", arguments...)
