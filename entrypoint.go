@@ -22,9 +22,8 @@ func main() {
 		arguments = append(arguments, "-version")
 	}
 
-	arguments = append(arguments, args[7])
 	fmt.Printf("%v", arguments)
-	cmd := exec.Command("migrate", arguments...)
+	cmd := exec.Command(fmt.Sprintf("migrate %s", args[7]), arguments...)
 
 	var out bytes.Buffer
 	var stderr bytes.Buffer
