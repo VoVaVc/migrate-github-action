@@ -31,11 +31,11 @@ runs:
   args: 
     - ${{ inputs.path }}
     - ${{ inputs.database }}
-    - ${{ inputs.command }}
     - ${{ inputs.prefetch }}
     - ${{ inputs.lockTimeout }}
     - ${{ inputs.verbose }}
     - ${{ inputs.version }}
+    - ${{ inputs.command }}
 
 branding:
   icon: 'database'

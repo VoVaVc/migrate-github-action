@@ -1,5 +1,8 @@
+FROM golang:1.20.4 as builder
+
+COPY entrypoint.go /entrypoint.go
+RUN go build -o app
+
 FROM migrate/migrate
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./app"]
