@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 	"net/url"
 	"os"
@@ -45,18 +44,13 @@ func main() {
 	arguments = append(arguments, args[7])
 
 	fmt.Printf("Command is: migrate %v", arguments)
-	cmd := exec.Command("migrate", arguments...)
-
-	var out bytes.Buffer
-	var stderr bytes.Buffer
-	cmd.Stdout = &out
-	cmd.Stderr = &stderr
-	if err := cmd.Run(); err != nil {
-		fmt.Println(fmt.Sprint(err) + ": " + stderr.String())
+	out, err := exec.Command("migrate", arguments...).Output()
+	if err != nil {
+		fmt.Println(fmt.Sprint(err))
 		if exitError, ok := err.(*exec.ExitError); ok {
 			os.Exit(exitError.ExitCode())
 		}
 	} else {
-		out.String()
+		fmt.Printf("The date is %s\n", string(out))
 	}
 }
