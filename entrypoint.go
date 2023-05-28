@@ -17,7 +17,7 @@ func main() {
 
 	arguments := []string{
 		"-path",
-		fmt.Sprintf("%q", args[1]),
+		args[1],
 		"-database",
 		fmt.Sprintf("%q", quote(args[2])),
 		"-prefetch",
