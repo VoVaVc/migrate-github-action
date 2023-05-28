@@ -12,7 +12,8 @@ import (
 func queryEscape(s string) string {
 	split := strings.Split(s, "://")
 	usernamePassword := strings.Split(split[1], "@")
-	replaced := strings.Replace(s, usernamePassword[0], url.QueryEscape(usernamePassword[0]), 3)
+	password := strings.Split(usernamePassword[0], ":")
+	replaced := strings.Replace(s, password[1], url.QueryEscape(usernamePassword[0]), 3)
 
 	return fmt.Sprintf("\n %s", replaced)
 }
