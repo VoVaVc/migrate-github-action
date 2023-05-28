@@ -31,8 +31,6 @@ func main() {
 		args[4],
 	}
 
-	fmt.Printf("Arguments are: migrate %v", args)
-
 	if len(args[5]) > 0 {
 		arguments = append(arguments, "-verbose")
 	}
@@ -43,7 +41,6 @@ func main() {
 
 	arguments = append(arguments, args[7])
 
-	fmt.Printf("Command is: migrate %v", arguments)
 	cmd := exec.Command("migrate", arguments...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
