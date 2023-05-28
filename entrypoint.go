@@ -6,10 +6,15 @@ import (
 	"net/url"
 	"os"
 	"os/exec"
+	"strings"
 )
 
-func quote(s string) string {
-	return (&url.URL{Path: s}).RequestURI()
+func queryEscape(s string) string {
+	split := strings.Split(s, "://")
+	usernamePassword := strings.Split(split[1], "@")
+	replaced := strings.Replace(s, usernamePassword[0], url.QueryEscape(usernamePassword[0]), 3)
+
+	return fmt.Sprintf("\n %s", replaced)
 }
 
 func main() {
@@ -19,7 +24,7 @@ func main() {
 		"-path",
 		args[1],
 		"-database",
-		quote(args[2]),
+		queryEscape(args[2]),
 		"-prefetch",
 		args[3],
 		"-lock-timeout",
