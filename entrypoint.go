@@ -18,7 +18,7 @@ func queryEscape(s string) string {
 	fmt.Printf("\n original string is %s", s)
 	fmt.Printf("\n replaced string is %s", replaced)
 
-	return fmt.Sprintf("\n %s", replaced)
+	return replaced
 }
 
 func main() {
