@@ -44,13 +44,14 @@ func main() {
 	arguments = append(arguments, args[7])
 
 	fmt.Printf("Command is: migrate %v", arguments)
-	out, err := exec.Command("migrate", arguments...).Output()
+	cmd := exec.Command("migrate", arguments...)
+	out, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Println(fmt.Sprint(err))
 		if exitError, ok := err.(*exec.ExitError); ok {
 			os.Exit(exitError.ExitCode())
 		}
-	} else {
-		fmt.Printf("The date is %s\n", string(out))
 	}
+
+	fmt.Printf("Result: \n%s\n", string(out))
 }
