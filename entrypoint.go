@@ -13,7 +13,6 @@ func main() {
 	args := os.Args
 
 	arguments := []string{args[1], url.QueryEscape(args[2]), args[3], args[4]}
-	fmt.Printf("%v", arguments)
 
 	if len(args[5]) > 0 {
 		arguments = append(arguments, "-verbose")
@@ -24,15 +23,17 @@ func main() {
 	}
 
 	arguments = append(arguments, args[7])
+	fmt.Printf("%v", arguments)
 	cmd := exec.Command("migrate", arguments...)
 
 	var out bytes.Buffer
 	var stderr bytes.Buffer
 	cmd.Stdout = &out
 	cmd.Stderr = &stderr
-	err := cmd.Run()
-	if err != nil {
+	if err := cmd.Run(); err != nil {
 		fmt.Println(fmt.Sprint(err) + ": " + stderr.String())
-		return
+		if exitError, ok := err.(*exec.ExitError); ok {
+			os.Exit(exitError.ExitCode())
+		}
 	}
 }
