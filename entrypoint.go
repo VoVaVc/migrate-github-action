@@ -17,19 +17,19 @@ func main() {
 		fmt.Sprintf("%q", args[1]),
 		"-database",
 		fmt.Sprintf("%q", url.QueryEscape(args[2])),
-		"-prefetch",
-		args[3],
-		"-lock-timeout",
-		args[4],
+		// "-prefetch",
+		// args[3],
+		// "-lock-timeout",
+		// args[4],
 	}
 
-	if len(args[5]) > 0 {
-		arguments = append(arguments, "-verbose")
-	}
+	// if len(args[5]) > 0 {
+	// 	arguments = append(arguments, "-verbose")
+	// }
 
-	if len(args[6]) > 0 {
-		arguments = append(arguments, "-version")
-	}
+	// if len(args[6]) > 0 {
+	// 	arguments = append(arguments, "-version")
+	// }
 
 	arguments = append(arguments, args[7])
 
