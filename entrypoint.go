@@ -14,9 +14,9 @@ func main() {
 
 	arguments := []string{
 		"-path",
-		fmt.Sprintf("%q", args[1])),
+		fmt.Sprintf("%q", args[1]),
 		"-database",
-		fmt.Sprintf("%q",  url.QueryEscape(args[2])),
+		fmt.Sprintf("%q", url.QueryEscape(args[2])),
 		"-prefetch",
 		args[3],
 		"-lock-timeout",
