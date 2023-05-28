@@ -8,32 +8,37 @@ import (
 	"os/exec"
 )
 
+func quote(s string) string {
+	return (&url.URL{Path: s}).RequestURI()
+}
+
 func main() {
-	fmt.Println(len(os.Args), os.Args)
 	args := os.Args
 
 	arguments := []string{
 		"-path",
 		fmt.Sprintf("%q", args[1]),
 		"-database",
-		fmt.Sprintf("%q", url.QueryEscape(args[2])),
-		// "-prefetch",
-		// args[3],
-		// "-lock-timeout",
-		// args[4],
+		fmt.Sprintf("%q", quote(args[2])),
+		"-prefetch",
+		args[3],
+		"-lock-timeout",
+		args[4],
 	}
 
-	// if len(args[5]) > 0 {
-	// 	arguments = append(arguments, "-verbose")
-	// }
+	fmt.Printf("Arguments are: migrate %v", args)
 
-	// if len(args[6]) > 0 {
-	// 	arguments = append(arguments, "-version")
-	// }
+	if len(args[5]) > 0 {
+		arguments = append(arguments, "-verbose")
+	}
+
+	if len(args[6]) > 0 {
+		arguments = append(arguments, "-version")
+	}
 
 	arguments = append(arguments, args[7])
 
-	fmt.Printf("%v", arguments)
+	fmt.Printf("Command is: migrate %v", arguments)
 	cmd := exec.Command("migrate", arguments...)
 
 	var out bytes.Buffer
