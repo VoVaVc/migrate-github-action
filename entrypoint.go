@@ -12,7 +12,12 @@ func main() {
 	fmt.Println(len(os.Args), os.Args)
 	args := os.Args
 
-	arguments := []string{args[1], url.QueryEscape(args[2]), args[3], args[4]}
+	arguments := []string{
+		fmt.Sprintf("-path %s", args[1]),
+		fmt.Sprintf("-database %s", url.QueryEscape(args[2])),
+		fmt.Sprintf("-prefetch %s", args[3]),
+		fmt.Sprintf("-lock-timeout %s", args[4]),
+	}
 
 	if len(args[5]) > 0 {
 		arguments = append(arguments, "-verbose")
@@ -22,8 +27,10 @@ func main() {
 		arguments = append(arguments, "-version")
 	}
 
+	arguments = append(arguments, args[4])
+
 	fmt.Printf("%v", arguments)
-	cmd := exec.Command(fmt.Sprintf("migrate %s", args[7]), arguments...)
+	cmd := exec.Command("migrate", arguments...)
 
 	var out bytes.Buffer
 	var stderr bytes.Buffer
