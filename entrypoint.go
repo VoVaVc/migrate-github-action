@@ -19,7 +19,7 @@ func main() {
 		"-path",
 		args[1],
 		"-database",
-		fmt.Sprintf("%q", quote(args[2])),
+		quote(args[2]),
 		"-prefetch",
 		args[3],
 		"-lock-timeout",
