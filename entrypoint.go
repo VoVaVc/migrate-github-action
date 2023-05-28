@@ -14,9 +14,6 @@ func queryEscape(s string) string {
 	usernamePassword := strings.Split(split[1], "@")
 	password := strings.Split(usernamePassword[0], ":")
 	replaced := strings.Replace(s, password[1], url.QueryEscape(password[1]), 3)
-	fmt.Printf("\n password is %s", password[1])
-	fmt.Printf("\n original string is %s", s)
-	fmt.Printf("\n replaced string is %s", replaced)
 
 	return replaced
 }
@@ -59,5 +56,7 @@ func main() {
 		if exitError, ok := err.(*exec.ExitError); ok {
 			os.Exit(exitError.ExitCode())
 		}
+	} else {
+		out.String()
 	}
 }
