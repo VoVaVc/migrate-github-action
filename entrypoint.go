@@ -14,13 +14,13 @@ func main() {
 
 	arguments := []string{
 		"-path",
-		fmt.Sprintf("\"%s\"", args[1]),
+		fmt.Sprintf("%q", args[1])),
 		"-database",
-		fmt.Sprintf("\"%s\"", url.QueryEscape(args[2])),
+		fmt.Sprintf("%q",  url.QueryEscape(args[2])),
 		"-prefetch",
-		fmt.Sprintf("\"%s\"", args[3]),
+		args[3],
 		"-lock-timeout",
-		fmt.Sprintf("\"%s\"", args[4]),
+		args[4],
 	}
 
 	if len(args[5]) > 0 {
