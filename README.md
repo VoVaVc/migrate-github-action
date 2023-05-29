@@ -31,7 +31,7 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       - name: Migrate
-        uses: vovavc/migrate-github-action@v0.1.1
+        uses: vovavc/migrate-github-action@v0.2.1
         with:
             path: ./backend/migrate
             database: postgres://username:password@localhost:5432/database_name?sslmode=disable
