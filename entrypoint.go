@@ -1,7 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"bytes"
+	"io"
+	"log"
 	"net/url"
 	"os"
 	"os/exec"
@@ -42,13 +44,21 @@ func main() {
 	arguments = append(arguments, args[7])
 
 	cmd := exec.Command("migrate", arguments...)
-	out, err := cmd.CombinedOutput()
-	if err != nil {
-		fmt.Println(fmt.Sprint(err))
-		if exitError, ok := err.(*exec.ExitError); ok {
+	var stdBuffer bytes.Buffer
+	mw := io.MultiWriter(os.Stdout, &stdBuffer)
+
+	cmd.Stdout = mw
+	cmd.Stderr = mw
+
+	// Execute the command
+	if err := cmd.Run(); err != nil {
+		log.Printf("error: %v", err)
+		exitError, ok := err.(*exec.ExitError)
+		if ok {
 			os.Exit(exitError.ExitCode())
 		}
 	}
 
-	fmt.Printf("Result: \n%s\n", string(out))
+	log.Println(stdBuffer.String())
+
 }
