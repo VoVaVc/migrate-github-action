@@ -34,7 +34,7 @@ jobs:
         uses: vovavc/migrate-github-action@v0.2.1
         with:
             path: ./backend/migrate
-            database: postgres://username:password@localhost:5432/database_name?sslmode=disable
+            database: mysql://${{ secrets.DB_USER }}:${{ secrets.DB_PASS }}@tcp(${{ secrets.DB_HOST }})/${{ secrets.DB_NAME }}?tls=${{ secrets.DB_TLS }}
             command: up
 ```
 
