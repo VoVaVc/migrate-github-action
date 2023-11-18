@@ -17,8 +17,28 @@ See [action.yml](./action.yml) for more detailed information.
 [Migrate CLI docs](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate)
 
 
-## Usage
+## Usage with postgres
 
+```yaml
+name: run migration
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+        name: Checkout
+        uses: actions/checkout@v3
+      - name: Migrate
+        uses: vovavc/migrate-github-action@v0.2.1
+        with:
+            path: ./backend/migrate
+            database: postgres://username:password@localhost:5432/database_name?sslmode=disable
+            command: up
+```
+
+## Usage with mysql and github secrets
 ```yaml
 name: run migration
 on: [push]
